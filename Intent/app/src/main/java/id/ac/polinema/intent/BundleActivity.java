@@ -21,6 +21,7 @@ public class BundleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bundle);
         usernameInput = findViewById(R.id.input_username);
+        nameInput = findViewById(R.id.input_name);
         ageInput = findViewById(R.id.input_age);
     }
 
