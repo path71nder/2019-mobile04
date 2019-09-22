@@ -43,22 +43,29 @@ public class User implements Parcelable {
         return CREATOR;
     }
 
-    protected User(Parcel in) {
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-    }
 
     @Override
     public int describeContents() {
         return 0;
     }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.username);
+        dest.writeString(this.name);
+        dest.writeInt(this.age);
+    }
+
+    protected User(Parcel in) {
+        this.username = in.readString();
+        this.name = in.readString();
+        this.age = in.readInt();
+    }
+
     public static final Creator<User> CREATOR = new Creator<User>() {
         @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
+        public User createFromParcel(Parcel source) {
+            return new User(source);
         }
 
         @Override
@@ -66,6 +73,4 @@ public class User implements Parcelable {
             return new User[size];
         }
     };
-
-
 }
